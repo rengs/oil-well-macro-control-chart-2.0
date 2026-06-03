@@ -1,40 +1,59 @@
-# Oil Well Macro Control Chart 2.0
+# 宏观控制图 2.0：面向油井群的多维图谱分析方法
 
-油井宏观控制图 2.0 是一个用于油井供采匹配、能效评价、措施潜力识别和液量供给状态分析的示例工程。仓库包含方法说明、样例数据、指标计算脚本、绘图脚本、Streamlit 演示应用和 Notebook 示例。
+## 1. 项目简介
 
-## Project Structure
+宏观控制图 2.0 不是一张图，而是一套面向油井群管理的多维图谱方法。
 
-```text
-oil-well-macro-control-chart-2.0/
-├── docs/        # 方法、图谱、指标、流程和引用声明
-├── data/        # 样例油井数据
-├── src/         # 数据生成、指标计算、绘图和应用入口
-├── notebooks/   # Notebook 演示
-├── examples/    # 示例图表
-└── assets/      # 框架图等静态资源
-```
+它将油井生产、供采关系、能效水平、措施潜力、供液状态等信息进行统一映射，通过不同管理视角的着色、分区和交互分析，提升油井群管理的数据洞察能力。
 
-## Quick Start
+## 2. 图谱体系
+
+本项目包括以下几类图谱：
+
+1. 供采匹配控制图
+2. 能效价值控制图
+3. 措施潜力控制图
+4. 供液状态控制图
+
+同一批井可以按照不同管理视角着色：
+
+- 按泵效着色
+- 按管理分区着色
+- 按能效压力着色
+- 按沉没度着色
+
+## 3. 方法价值
+
+宏观控制图 2.0 主要用于：
+
+- 快速识别供采失配井
+- 发现高能耗低效井
+- 判断措施潜力井
+- 辅助制定油井治理优先级
+- 支撑油井群精细化管理
+
+## 4. 示例数据说明
+
+本项目使用随机模拟数据进行演示，不包含任何真实油井数据。
+
+模拟数据包括：
+
+- 日产液
+- 日产油
+- 含水率
+- 泵效
+- 冲次
+- 动液面
+- 沉没度
+- 电耗指标
+- 管理分区
+- 示例功图特征
+
+## 5. 快速开始
 
 ```bash
+git clone https://github.com/rengs/oil-well-macro-control-chart-2.0.git
+cd oil-well-macro-control-chart-2.0
 pip install -r requirements.txt
-python src/generate_sample_data.py --rows 500 --output data/sample_wells_500.csv
-python src/plot_macro_control_chart.py --input data/sample_wells_500.csv --output-dir examples --asset-dir assets
-streamlit run src/app.py
+python src/app.py
 ```
-
-## Data
-
-`data/sample_wells_500.csv` 是基于固定随机种子的模拟样例数据，包含 500 口井的生产、能耗、液面、供采匹配和措施潜力字段。样例数据仅用于方法演示，不代表任何实际油田资产。
-
-## Main Outputs
-
-- `examples/supply_production_matching.png`
-- `examples/energy_value_chart.png`
-- `examples/measure_potential_chart.png`
-- `examples/liquid_supply_status_chart.png`
-- `assets/framework_diagram.png`
-
-## License
-
-当前 `LICENSE` 文件为占位声明。正式开源或商业授权条款应由仓库所有者确认后更新。
